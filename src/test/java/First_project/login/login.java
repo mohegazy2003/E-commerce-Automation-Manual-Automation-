@@ -53,7 +53,7 @@ public class login extends BaseTest {
 
         //Assertion
         String actualResult = driver.findElement(By.xpath("//*[contains(text(),'Your email or password is incorrect!')]")).getText();
-        String expectedResult = "Your password is invalid!";
+        String expectedResult = "Your email or password is incorrect!";
         Assert.assertTrue(actualResult.contains(expectedResult));
 
 }
