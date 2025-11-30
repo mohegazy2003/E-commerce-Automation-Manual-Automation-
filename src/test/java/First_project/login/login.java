@@ -56,5 +56,21 @@ public class login extends BaseTest {
         String expectedResult = "Your email or password is incorrect!";
         Assert.assertTrue(actualResult.contains(expectedResult));
 
-}
+
+
+
+    }
+    @Test(priority = 4)
+    public void testemptyPasswordandusername() {
+
+
+        //Login with incorrect password
+        driver.findElement(By.xpath("//*[contains(text(),'Login')]")).click();
+        driver.findElement(By.xpath("//*[@data-qa='login-email']")).clear();
+        driver.findElement(By.xpath("//*[@data-qa='login-password']")).clear();
+        driver.findElement(By.xpath("//*[@data-qa='login-button']")).click();
+
+
+
+    }
 }
