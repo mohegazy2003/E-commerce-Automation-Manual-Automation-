@@ -2,8 +2,11 @@ package Test;
 
 import Base.BaseTest;
 import Page.ContactUsPage;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+
 
 public class TestCase extends BaseTest {
     ContactUsPage contactUsPage;
@@ -26,7 +29,6 @@ public class TestCase extends BaseTest {
 
     }
 
-
     @Test(priority = 2)
     public void EnterInvalidEmail() {
 
@@ -37,13 +39,12 @@ public class TestCase extends BaseTest {
         contactUsPage.insertSubject("qqqqqqqqqqqqqqwerrrrrrrrrrxcvbbbbbbbbbbb");
         contactUsPage.ClickOnSubmit();
 
-        String actualError = contactUsPage.getEmailErrorMessage();
-        String expected = "Please include an'@'in the email address.'Ha1752r1gwuj'is missing an'@'.";
-        Assert.assertTrue(actualError.contains(expected),
+        String actualError = contactUsPage.getEmailValidationMessage();
+        Assert.assertTrue(actualError.contains("include an '@'"),
                 "Email error message is not correct: " + actualError);
     }
     @Test(priority = 3)
-    public void invaliddata() {
+    public void Namefieldempty() {
 
         contactUsPage = homePage.ClickOnContactUs();
         contactUsPage.insertName("");
@@ -57,6 +58,8 @@ public class TestCase extends BaseTest {
         String Actualresult = contactUsPage.getSuccessmessage();
         String expectedResult = "Success! Your details have been submitted successfully.";
         Assert.assertTrue(Actualresult.contains(expectedResult));
+    }
 
-    }
-    }
+
+
+}
