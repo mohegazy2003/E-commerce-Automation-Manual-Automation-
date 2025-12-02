@@ -1,11 +1,13 @@
 package Page;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+
 
 public class ContactUsPage {
     WebDriver driver;
@@ -26,7 +28,7 @@ public class ContactUsPage {
     private By SubmitButton = By.name("submit");
     private By Successmessage = By.cssSelector(".status.alert.alert-success");
     private By EmailErrorMessage = By.cssSelector("div.alert.alert-danger");
-
+    private By UploadFile = By.name("file");
     //Actions
     public void insertName(String name) {
         driver.findElement(NameBox).sendKeys(name);
@@ -66,16 +68,10 @@ public class ContactUsPage {
         driver.switchTo().alert().accept();
     }
 
-    public String getEmailErrorMessage() {
-        new WebDriverWait(driver, Duration.ofSeconds(15))
-                .until(ExpectedConditions.visibilityOfElementLocated(EmailErrorMessage));
-        return driver.findElement(EmailErrorMessage).getText();
+    public String getEmailValidationMessage() {
+        return driver.findElement(EmailBox).getAttribute("validationMessage");
     }
 
 
 
-
-
-
 }
-
