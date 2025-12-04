@@ -9,7 +9,7 @@ public class HomePage {
     private WebDriver driver;
 
     // Locators
-    private By headerLogo = By.cssSelector(".logo img");
+    private By headerLogo = By.cssSelector(".logo");
     private By subscriptionEmailField = By.id("susbscribe_email");
     private By subscribeButton = By.id("subscribe");
     private By subscriptionSuccessMessage = By.id("success-subscribe");
@@ -46,3 +46,4 @@ public class HomePage {
         return driver.getTitle();
     }
 }
+
