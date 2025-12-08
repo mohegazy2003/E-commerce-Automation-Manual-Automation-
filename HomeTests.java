@@ -12,7 +12,7 @@ import java.time.Duration;
 public class HomeTests extends BaseClass {
 
     private String generateUniqueEmail() {
-        return "testuser" + System.currentTimeMillis() + "@test.com";
+        return "testuser@test.com";
     }
 
     @Test
@@ -43,3 +43,4 @@ public class HomeTests extends BaseClass {
                 "The 'FEATURES_ITEMS' section is not displayed.");
     }
 }
+
